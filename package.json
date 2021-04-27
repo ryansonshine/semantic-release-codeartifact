@@ -1,18 +1,67 @@
 {
-  "name": "semantic-release-codecommit",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "name": "semantic-release-codeartifact",
+  "version": "0.0.1",
+  "description": "semantic-release plugin for AWS CodeArtifact",
+  "main": "./lib/index.js",
+  "files": [
+    "lib/**/*"
+  ],
   "repository": {
     "type": "git",
-    "url": "codecommit::us-east-1://semantic-release-codecommit"
+    "url": "https://github.com/ryansonshine/semantic-release-codeartifact.git"
   },
-  "author": "",
-  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryansonshine/semantic-release-codeartifact/issues"
+  },
+  "contributors": [
+    {
+      "name": "Ryan Sonshine",
+      "url": "https://github.com/ryansonshine"
+    }
+  ],
+  "engines": {
+    "node": ">=10.0"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint ./src/ --fix",
+    "clean": "rm -rf ./lib/",
+    "test": "jest --coverage",
+    "start": "TS_NODE_FILES=true ts-node ./src/cli.ts",
+    "coverage": "codecov",
+    "cm": "cz",
+    "test:watch": "jest --watch",
+    "semantic-release": "semantic-release"
+  },
+  "dependencies": {},
   "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "@types/node": "^12.20.11",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "codecov": "^3.8.1",
+    "commitizen": "^4.2.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^6.0.0",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1",
+    "semantic-release": "^17.4.2",
+    "ts-jest": "^26.5.5",
+    "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.ts": "eslint --cache --cache-location .eslintcache --fix"
   }
 }
