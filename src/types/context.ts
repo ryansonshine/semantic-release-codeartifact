@@ -130,8 +130,8 @@ export interface Commit {
 }
 
 export interface SemanticReleaseError {
-  name: string;
+  name: 'SemanticReleaseError';
   code: string;
   details: string;
-  semanticRelease: boolean;
+  semanticRelease: true;
 }
