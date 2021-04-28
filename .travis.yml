@@ -20,6 +20,7 @@ jobs:
     - stage: release
       node_js: lts/*
       script: skip
+      if: branch = main
       deploy:
         provider: script
         script:
