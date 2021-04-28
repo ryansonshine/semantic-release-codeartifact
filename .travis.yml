@@ -20,9 +20,10 @@ jobs:
     - stage: release
       node_js: lts/*
       script: skip
-      if: branch = main
       deploy:
         provider: script
         script:
           - npm run build
           - npm run semantic-release
+      on:
+        all_branches: true
