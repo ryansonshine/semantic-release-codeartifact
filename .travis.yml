@@ -22,6 +22,6 @@ jobs:
       deploy:
         provider: script
         script:
-          - npm run semantic-release
+          - npx semantic-release
         on:
           all_branches: true
