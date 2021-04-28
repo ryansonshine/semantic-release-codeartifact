@@ -25,5 +25,5 @@ jobs:
         script:
           - npm run build
           - npm run semantic-release
-      on:
-        all_branches: true
+        on:
+          all_branches: true
