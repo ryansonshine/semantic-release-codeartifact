@@ -63,5 +63,10 @@
   },
   "lint-staged": {
     "*.ts": "eslint --cache --cache-location .eslintcache --fix"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
   }
 }
