@@ -22,4 +22,4 @@ jobs:
       deploy:
         provider: script
         script:
-          - npx semantic-release
+          - npm run semantic-release
