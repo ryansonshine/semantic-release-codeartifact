@@ -8,6 +8,7 @@ export interface ErrorDetails {
 export interface ErrorDefinitions {
   EINVALIDTOOL: (pluginConfig: Partial<PluginConfig>) => ErrorDetails;
   ENODOMAINSET: (...args: unknown[]) => ErrorDetails;
+  ENOREPOSET: () => ErrorDetails;
   ENOAWSREGION: () => ErrorDetails;
   ENOAWSKEYID: () => ErrorDetails;
   ENOAWSSECRETKEY: () => ErrorDetails;
