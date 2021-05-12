@@ -1,4 +1,5 @@
-import type { WriteStream } from 'node:fs';
+import type SemanticReleaseError from '@semantic-release/error';
+import type { WriteStream } from 'fs';
 import type { Signale } from 'signale';
 
 /** Context keys shared across all lifecycle methods */
@@ -17,7 +18,7 @@ export interface VerifyConditionsContext extends CommonContext {
   /** Information about CI environment */
   envCi: EnvCi;
   /** Options passed to `semantic-release` via CLI, configuration files, etc. */
-  options: Options;
+  options: OptionsBase;
   /** Information on the current branch */
   branch: Branch;
   /** Information on branches */
@@ -86,13 +87,30 @@ export interface Tag {
   channels: Channel[];
 }
 
-export interface Options {
+export interface OptionsBase {
   branches: (Branch | string)[];
   repositoryUrl: string;
   tagFormat: string;
   plugins: string[];
   dryRun: boolean;
-  [key: string]: unknown;
+  [key: string]: any;
+}
+
+// export type CodeArtifactTool = 'npm' | 'nuget' | 'dotnet' | 'pip' | 'twine';
+
+export interface PluginConfig extends OptionsBase {
+  /** Tool to connect with the CodeArtifact repository */
+  tool: string;
+  /** Your CodeArtifact domain name */
+  domain: string;
+  /** The AWS Account ID that owns your CodeArtifact domain */
+  domainOwner?: string;
+  /** Associates a namespace with your repository tool */
+  namespace?: string;
+  /** The time, in seconds, that the login information is valid */
+  durationSeconds?: number;
+  /** Your CodeArtifact repository name */
+  repository: string;
 }
 
 export type Channel = null | string;
@@ -127,11 +145,4 @@ export interface Author {
 export interface Commit {
   long: string;
   short: string;
-}
-
-export interface SemanticReleaseError {
-  name: 'SemanticReleaseError';
-  code: string;
-  details: string;
-  semanticRelease: true;
 }

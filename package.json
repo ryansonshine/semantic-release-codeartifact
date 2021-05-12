@@ -1,8 +1,8 @@
 {
   "name": "semantic-release-codeartifact",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "description": "semantic-release plugin for AWS CodeArtifact",
-  "main": "./lib/index.js",
+  "main": "./lib/src/index.js",
   "files": [
     "lib/**/*"
   ],
@@ -10,6 +10,7 @@
     "type": "git",
     "url": "https://github.com/ryansonshine/semantic-release-codeartifact.git"
   },
+  "homepage": "https://github.com/ryansonshine/semantic-release-codeartifact#readme",
   "bugs": {
     "url": "https://github.com/ryansonshine/semantic-release-codeartifact/issues"
   },
@@ -34,15 +35,22 @@
     "test:watch": "jest --watch",
     "semantic-release": "semantic-release"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@aws-sdk/client-codeartifact": "^3.13.1",
+    "@semantic-release/error": "^2.2.0",
+    "aggregate-error": "^3.1.0",
+    "fs-extra": "^10.0.0",
+    "read-pkg": "5.2.0"
+  },
   "devDependencies": {
+    "@types/fs-extra": "^9.0.11",
     "@types/jest": "^26.0.23",
     "@types/node": "^12.20.11",
     "@types/signale": "^1.4.1",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "codecov": "^3.8.1",
-    "commitizen": "^4.2.3",
+    "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.25.0",
     "eslint-config-prettier": "^8.3.0",
