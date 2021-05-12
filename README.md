@@ -108,6 +108,8 @@ npm install --save-dev semantic-release semantic-release-codeartifact
 }
 ```
 
+**Note:** `semantic-release-codeartifact` must be listed before `@semantic-release/npm`
+
 ### pip - Python
 
 [Support for pip coming soon](https://github.com/ryansonshine/semantic-release-codeartifact/issues/8)
