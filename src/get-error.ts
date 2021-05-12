@@ -1,6 +1,6 @@
+import type { ErrorDefinitions, PluginConfig } from './types';
 import SemanticReleaseError from '@semantic-release/error';
 import { ERROR_DEFINITIONS } from './definitions/errors';
-import { ErrorDefinitions, PluginConfig } from './types';
 
 export const getError = (
   code: keyof ErrorDefinitions,

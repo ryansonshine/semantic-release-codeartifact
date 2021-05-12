@@ -1,13 +1,13 @@
 import type SemanticReleaseError from '@semantic-release/error';
-import { resolve } from 'path';
-import { outputFile } from 'fs-extra';
-import {
+import type {
   CodeArtifactConfig,
   PluginConfig,
   VerifyConditionsContext,
 } from './types';
-import { getError } from './get-error';
+import { resolve } from 'path';
+import { outputFile } from 'fs-extra';
 import readPkg from 'read-pkg';
+import { getError } from './get-error';
 import { removeTrailingSlash } from './util/string';
 
 const REQUIRED_PLUGINS = ['@semantic-release/npm'];

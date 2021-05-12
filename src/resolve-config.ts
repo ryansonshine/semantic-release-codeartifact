@@ -1,5 +1,5 @@
+import type { PluginConfig, VerifyConditionsContext } from './types';
 import { DEFAULT_DURATION_SECONDS } from './definitions/constants';
-import { PluginConfig, VerifyConditionsContext } from './types';
 
 export const resolveConfig = (
   pluginConfig: PluginConfig,

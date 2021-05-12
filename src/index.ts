@@ -1,5 +1,5 @@
+import type { PluginConfig, VerifyConditionsContext } from './types';
 import { verifyCodeArtifact } from './verify-auth';
-import { PluginConfig, VerifyConditionsContext } from './types';
 import AggregateError from 'aggregate-error';
 
 export async function verifyConditions(
