@@ -1,27 +1,123 @@
 # semantic-release-codeartifact
+<!-- TODO: Add badges -->
 
 [semantic-release](https://github.com/semantic-release/semantic-release) plugin
 for publishing packages to [AWS CodeArtifact](https://aws.amazon.com/codeartifact/)
 
-<!-- TODO: Add badges -->
+| Step               | Description                                                                                                                                                                                                        |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `verifyConditions` | Verify the presence and the validity of the authentication (set via [configuration](#configuration)), and provide authentication values to the semantic-release plugin related to the CodeArtifact tool being used |
 
-<!-- TODO: Add  plugins/configuration -->
+## Install
+
+```bash
+npm install --save-dev semantic-release-codeartifact
+```
+
+## Usage
+
+The plugin can be configured in the [**semantic-release** configuration file](https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md#configuration):
+
+```json
+{
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    ["semantic-release-codeartifact", {
+      "tool": "npm",
+      "domain": "<YOUR_DOMAIN>",
+      "repository": "<YOUR_REPOSITORY>"
+    }],
+    "@semantic-release/npm",
+    "@semantic-release/github"
+  ]
+}
+```
+
+See [Additional Usage](#additional-usage) for details on using other tools with this plugin.
 
 ## Configuration
 
-## Lifecycle Hooks
+### AWS Environment variables
 
-<!-- TODO: List out lifecycle hooks -->
+The AWS configuration is **required** for the AWS SDK which is used for getting
+an auth token for CodeArtifact.
 
-| Step               | Required | Description                                                                                                                                                                                                          |
-|--------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `verifyConditions` | No       | Responsible for verifying conditions necessary to proceed with the release: configuration is correct, authentication token are valid, etc...                                                                         |
-| `analyzeCommits`   | Yes      | Responsible for determining the type of the next release (`major`, `minor` or `patch`). If multiple plugins with a `analyzeCommits` step are defined, the release type will be the highest one among plugins output. |
-| `verifyRelease`    | No       | Responsible for verifying the parameters (version, type, dist-tag etc...) of the release that is about to be published.                                                                                              |
-| `generateNotes`    | No       | Responsible for generating the content of the release note. If multiple plugins with a `generateNotes` step are defined, the release notes will be the result of the concatenation of each plugin output.            |
-| `prepare`          | No       | Responsible for preparing the release, for example creating or updating files such as `package.json`, `CHANGELOG.md`, documentation or compiled assets and pushing a commit.                                         |
-| `publish`          | No       | Responsible for publishing the release.                                                                                                                                                                              |
-| `addChannel`       | No       | Responsible for adding a release channel (e.g. adding an npm dist-tag to a release).                                                                                                                                 |
-| `success`          | No       | Responsible for notifying of a new release.                                                                                                                                                                          |
-| `fail`             | No       | Responsible for notifying of a failed release.                                                                                                                                                                       |                                                                                                                                                                     |
+| Variable                | Description                                              |
+| ----------------------- | -------------------------------------------------------- |
+| `AWS_REGION`            | **Required.** The AWS region to be used with the AWS SDK |
+| `AWS_ACCESS_KEY_ID`     | **Required.** Your AWS Access Key                        |
+| `AWS_SECRET_ACCESS_KEY` | **Required.**  Your AWS Secret Access Key                |
+| `AWS_SESSION_TOKEN`     | Session token if you have/need it                        |
 
+### Plugin environment variables
+
+The following environment variables can be set to configure the plugin. [Options](#options)
+specified by plugin config will take precedence over these environment variables.
+
+| Variable             | Description                                                            |
+| -------------------- | ---------------------------------------------------------------------- |
+| `SR_CA_TOOL`         | Tool to connect with the CodeArtifact repository                       |
+| `SR_CA_DOMAIN`       | Your CodeArtifact domain name                                          |
+| `SR_CA_REPOSITORY`   | Your CodeArtifact repository name                                      |
+| `SR_CA_DOMAIN_OWNER` | The AWS Account ID that owns your CodeArtifact domain                  |
+| `SR_CA_DURATION_SEC` | The time, in seconds, that login information for CodeArtifact is valid |
+
+### Options
+
+| Option             | Description                                                            | Default                                   |
+| ------------------ | ---------------------------------------------------------------------- | ----------------------------------------- |
+| `tool`             | **Required.** Tool to connect with the CodeArtifact repository         | `SR_CA_TOOL` environment variable.        |
+| `domain`           | **Required.** Your CodeArtifact domain name                            | `SR_CA_DOMAIN` environment variable.      |
+| `repository`       | **Required.** Your CodeArtifact repository name                        | `SR_CA_REPOSITORY` environment variable   |
+| `domainOwner`      | The AWS Account ID that owns your CodeArtifact domain                  | `SR_CA_DOMAIN_OWNER` environment variable |
+| `durationSections` | The time, in seconds, that login information for CodeArtifact is valid | `7200` (2 hours)                          |
+
+## Additional Usage
+
+CodeArtifact supports multiple tools including npm (JavaScript), Maven and Gradle
+(Java), and pip (Python). Each contain different dependencies and are listed below.
+
+### JavaScript - npm
+
+Required dependencies:
+
+- [`@semantic-release/npm`](https://www.npmjs.com/package/@semantic-release/npm)
+
+```bash
+npm install --save-dev semantic-release semantic-release-codeartifact
+```
+
+#### Plugin Configuration with npm
+
+*semantic-release includes the other plugins listed below:*
+
+```json
+{
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    ["semantic-release-codeartifact", {
+      "tool": "npm",
+      "domain": "<YOUR_DOMAIN>",
+      "repository": "<YOUR_REPOSITORY>"
+    }],
+    "@semantic-release/npm",
+    "@semantic-release/github"
+  ]
+}
+```
+
+**Note:** `semantic-release-codeartifact` must be listed before `@semantic-release/npm`
+
+### pip - Python
+
+[Support for pip coming soon](https://github.com/ryansonshine/semantic-release-codeartifact/issues/8)
+
+### Maven - Java
+
+[Support for Maven coming soon](https://github.com/ryansonshine/semantic-release-codeartifact/issues/9)
+
+### Gradle - Java
+
+[Support for Gradle coming soon](https://github.com/ryansonshine/semantic-release-codeartifact/issues/10)
