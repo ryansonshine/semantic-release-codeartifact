@@ -105,8 +105,6 @@ export interface PluginConfig extends OptionsBase {
   domain: string;
   /** The AWS Account ID that owns your CodeArtifact domain */
   domainOwner?: string;
-  /** Associates a namespace with your repository tool */
-  namespace?: string;
   /** The time, in seconds, that the login information is valid */
   durationSeconds?: number;
   /** Your CodeArtifact repository name */
