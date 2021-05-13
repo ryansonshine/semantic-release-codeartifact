@@ -4,7 +4,7 @@
 import { ErrorDefinitions } from '../types';
 import { SUPPORTED_TOOL_LIST } from './constants';
 
-const [homepage]: string = require('../../../package.json').homepage.split('#');
+const [homepage]: string = require('../../package.json').homepage.split('#');
 
 const linkify = (file: string): string => `${homepage}/blob/main/${file}`;
 
