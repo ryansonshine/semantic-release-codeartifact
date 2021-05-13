@@ -5,7 +5,7 @@ import type {
   VerifyConditionsContext,
 } from './types';
 import { resolve } from 'path';
-import { outputFile } from 'fs-extra';
+import { appendFile } from 'fs-extra';
 import readPkg from 'read-pkg';
 import { getError } from './get-error';
 import { removeTrailingSlash } from './util/string';
@@ -32,7 +32,7 @@ export const verifyNpm = async (
   // Check for publishConfig in package.json
   const { publishConfig = {} } = await readPkg({ cwd });
 
-  if (publishConfig?.registry) {
+  if (publishConfig.registry) {
     logger.log(
       'Validating publishConfig registry from package.json matches CodeArtifact endpoint'
     );
@@ -52,9 +52,12 @@ export const verifyNpm = async (
   } else {
     logger.info('Writing npmrc with CodeArtifact repository');
     const npmrc = resolve(cwd, '.npmrc');
-    await outputFile(
+    await appendFile(
       npmrc,
-      `registry=${repositoryEndpoint}\n//${repositoryEndpoint}:always-auth=true`
+      `registry=${repositoryEndpoint}\n//${repositoryEndpoint.replace(
+        /(^\w+:|^)\/\//,
+        ''
+      )}:always-auth=true\n`
     );
   }
 

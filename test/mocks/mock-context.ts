@@ -1,10 +1,9 @@
 import { VerifyConditionsContext } from '../../src/types';
-import logger from 'signale';
-import { mocked } from 'ts-jest/utils';
-import { WriteStream } from 'fs';
+// import signale from 'signale';
+// import { mocked } from 'ts-jest/utils';
+// jest.mock('signale');
 
-const stderr = (mocked(WriteStream, true) as unknown) as WriteStream;
-const stdout = (mocked(WriteStream, true) as unknown) as WriteStream;
+// const mockLogger = mocked(signale, true);
 
 export const mockContext: VerifyConditionsContext = {
   branch: {
@@ -26,15 +25,26 @@ export const mockContext: VerifyConditionsContext = {
     commit: '123abc',
     isCi: true,
   },
-  logger,
+  // TODO: Appropriate mocking
+  logger: {
+    log: jest.fn(),
+    error: jest.fn(),
+    info: jest.fn(),
+  } as any,
   options: {
     branches: ['main'],
     dryRun: false,
-    plugins: [],
+    plugins: [
+      '@semantic-release/commit-analyzer',
+      '@semantic-release/release-notes-generator',
+      '@semantic-release/npm',
+      '@semantic-release/github',
+    ],
     repositoryUrl:
       'https://github.com/ryansonshine/semantic-release-codeartifact.git',
     tagFormat: 'v${version}',
   },
-  stderr,
-  stdout,
+  // TODO: Appropriate mocking
+  stderr: jest.fn() as any,
+  stdout: jest.fn() as any,
 };
