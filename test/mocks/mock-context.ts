@@ -1,9 +1,4 @@
 import { VerifyConditionsContext } from '../../src/types';
-// import signale from 'signale';
-// import { mocked } from 'ts-jest/utils';
-// jest.mock('signale');
-
-// const mockLogger = mocked(signale, true);
 
 export const mockContext: VerifyConditionsContext = {
   branch: {
