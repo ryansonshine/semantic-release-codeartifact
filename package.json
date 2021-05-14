@@ -26,14 +26,15 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "lint": "eslint ./src/ --fix",
     "clean": "rm -rf ./lib/",
-    "test": "jest --coverage",
-    "start": "TS_NODE_FILES=true ts-node ./src/cli.ts",
-    "coverage": "codecov",
     "cm": "cz",
+    "coverage": "codecov",
+    "lint": "eslint ./src/ --fix",
+    "semantic-release": "semantic-release",
+    "start": "TS_NODE_FILES=true ts-node ./src/cli.ts",
     "test:watch": "jest --watch",
-    "semantic-release": "semantic-release"
+    "test": "jest --coverage",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@aws-sdk/client-codeartifact": "^3.13.1",
