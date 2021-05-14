@@ -74,7 +74,7 @@ describe('verify-config', () => {
 
       const [error, ...otherErrors] = verifyConfig(config, context);
 
-      expect(error?.code).toEqual<keyof ErrorDefinitions>('ENOAWSKEYID');
+      expect(error?.code).toEqual<keyof ErrorDefinitions>('ENOAWSACCESSKEY');
       expect(error?.name).toEqual('SemanticReleaseError');
       expect(otherErrors).toHaveLength(0);
     });

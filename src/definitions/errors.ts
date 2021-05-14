@@ -29,7 +29,7 @@ Your configuration for the \`tool\` option is \`${tool}\`.`,
       'README.md#options'
     )}) must be set in the plugin options.`,
   }),
-  ENOAWSKEYID: () => ({
+  ENOAWSACCESSKEY: () => ({
     message: 'No AWS access key specified.',
     details: `An [AWS Access Key ID](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#accesskeyID) must be specified to get an auth token from CodeArtifact.
 

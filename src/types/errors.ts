@@ -10,7 +10,7 @@ export interface ErrorDefinitions {
   ENODOMAINSET: (...args: unknown[]) => ErrorDetails;
   ENOREPOSET: () => ErrorDetails;
   ENOAWSREGION: () => ErrorDetails;
-  ENOAWSKEYID: () => ErrorDetails;
+  ENOAWSACCESSKEY: () => ErrorDetails;
   ENOAWSSECRETKEY: () => ErrorDetails;
   EMISSINGPLUGIN: (pluginConfig: Partial<PluginConfig>) => ErrorDetails;
   EPUBLISHCONFIGMISMATCH: (pluginConfig: Partial<PluginConfig>) => ErrorDetails;
