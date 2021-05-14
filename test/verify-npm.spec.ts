@@ -142,7 +142,6 @@ describe('verify-npm', () => {
           caConfig,
           []
         );
-        console.log('errors: ', errors);
         const result = await readFile(npmrc, 'utf8');
 
         expect(result.split('\n')).toContain(expected.split('\n')[0]);
