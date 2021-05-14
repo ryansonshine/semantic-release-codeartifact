@@ -1,16 +1,17 @@
 import type { ErrorDefinitions, VerifyConditionsContext } from '../src/types';
 import { verifyNpm } from '../src/verify-npm';
-import { mocked } from 'ts-jest/utils';
 import { makeCodeArtifactConfig, makePluginConfig } from './helpers/dummies';
 import { getMockContext } from './mocks/mock-context';
-import readPkg from 'read-pkg';
 import tempy from 'tempy';
 import { copy, readFile, writeFile } from 'fs-extra';
 
-jest.mock('read-pkg');
-
-const mockReadPkg = mocked(readPkg, true);
 const fixtures = 'test/fixtures/files';
+
+const copyDefaultPackage = async (cwd: string) =>
+  await copy(
+    `${fixtures}/package-without-registry.json`,
+    `${cwd}/package.json`
+  );
 
 describe('verify-npm', () => {
   describe('verifyNpm', () => {
@@ -20,13 +21,10 @@ describe('verify-npm', () => {
 
     beforeEach(() => {
       jest.resetAllMocks();
-      mockReadPkg.mockResolvedValue({});
     });
 
     it('should add an error when missing a plugin from the list of required plugins', async () => {
       await tempy.directory.task(async cwd => {
-        await copy(fixtures, cwd);
-
         const contextWithoutPlugins: VerifyConditionsContext = {
           ...mockContext,
           cwd,
@@ -36,6 +34,8 @@ describe('verify-npm', () => {
           },
         };
         const missingPluginCode: keyof ErrorDefinitions = 'EMISSINGPLUGIN';
+        await copy(fixtures, cwd);
+        await copyDefaultPackage(cwd);
 
         const [error] = await verifyNpm(
           pluginConfig,
@@ -50,31 +50,33 @@ describe('verify-npm', () => {
     });
 
     it('should add an error if the publishConfig registry exists but does not match the CA endpoint', async () => {
-      const packageRegistry = 'http://publish-config-registry.local';
-      const mismatchPublishCode: keyof ErrorDefinitions =
-        'EPUBLISHCONFIGMISMATCH';
-      mockReadPkg.mockResolvedValue({
-        publishConfig: {
-          registry: packageRegistry,
-        },
+      await tempy.directory.task(async cwd => {
+        const mismatchPublishCode: keyof ErrorDefinitions =
+          'EPUBLISHCONFIGMISMATCH';
+        await copy(
+          `${fixtures}/package-with-mismatch-registry.json`,
+          `${cwd}/package.json`
+        );
+
+        const [error, ...otherErrors] = await verifyNpm(
+          pluginConfig,
+          { ...mockContext, cwd },
+          caConfig,
+          []
+        );
+
+        expect(error?.code).toEqual(mismatchPublishCode);
+        expect(error?.name).toEqual('SemanticReleaseError');
+        expect(otherErrors).toHaveLength(0);
       });
-
-      const [error, ...otherErrors] = await verifyNpm(
-        pluginConfig,
-        mockContext,
-        caConfig,
-        []
-      );
-
-      expect(error?.code).toEqual(mismatchPublishCode);
-      expect(error?.name).toEqual('SemanticReleaseError');
-      expect(otherErrors).toHaveLength(0);
     });
 
     it('should resolve with no errors if the publishConfig registry matches the CA endpoint', async () => {
       await tempy.directory.task(async cwd => {
-        const registry = caConfig.repositoryEndpoint;
-        mockReadPkg.mockResolvedValue({ publishConfig: { registry } });
+        await copy(
+          `${fixtures}/package-with-matching-registry.json`,
+          `${cwd}/package.json`
+        );
 
         const errors = await verifyNpm(
           pluginConfig,
@@ -92,6 +94,7 @@ describe('verify-npm', () => {
         const multipleRegistryCode: keyof ErrorDefinitions =
           'ENPMRCMULTIPLEREGISTRY';
         await copy(`${fixtures}/multiregistry.npmrc`, `${cwd}/.npmrc`);
+        await copyDefaultPackage(cwd);
 
         const [error, ...otherErrors] = await verifyNpm(
           pluginConfig,
@@ -114,6 +117,7 @@ describe('verify-npm', () => {
           repositoryEndpoint: 'https://not-a-match.local/',
         });
         await copy(fixtures, cwd);
+        await copyDefaultPackage(cwd);
 
         const [error, ...otherErrors] = await verifyNpm(
           pluginConfig,
@@ -134,7 +138,7 @@ describe('verify-npm', () => {
         const npmrcContents =
           '//my-unrelated-registry.local/:always-auth=true\n';
         const expected = await readFile(`${fixtures}/.npmrc`, 'utf8');
-
+        await copyDefaultPackage(cwd);
         await writeFile(npmrc, npmrcContents);
 
         const errors = await verifyNpm(
@@ -154,6 +158,7 @@ describe('verify-npm', () => {
       await tempy.directory.task(async cwd => {
         const npmrc = `${cwd}/.npmrc`;
         const npmrcContents = `registry=${caConfig.repositoryEndpoint}`;
+        await copyDefaultPackage(cwd);
         await writeFile(npmrc, npmrcContents);
 
         const errors = await verifyNpm(
@@ -172,6 +177,7 @@ describe('verify-npm', () => {
     it('should write the registry to npmrc when no publishConfig exists and no npmrc exists', async () => {
       await tempy.directory.task(async cwd => {
         const expectedNpmrc = await readFile(`${fixtures}/.npmrc`, 'utf8');
+        await copyDefaultPackage(cwd);
 
         await verifyNpm(pluginConfig, { ...mockContext, cwd }, caConfig, []);
         const result = await readFile(`${cwd}/.npmrc`, 'utf8');

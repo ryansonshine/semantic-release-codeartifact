@@ -1,0 +1,25 @@
+{
+  "name": "semantic-release-codeartifact",
+  "version": "0.0.0-development",
+  "description": "semantic-release plugin for AWS CodeArtifact",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryansonshine/semantic-release-codeartifact.git"
+  },
+  "homepage": "https://github.com/ryansonshine/semantic-release-codeartifact#readme",
+  "contributors": [
+    {
+      "name": "Ryan Sonshine",
+      "url": "https://github.com/ryansonshine"
+    }
+  ],
+  "publishConfig": {
+    "registry": "http://publish-config-registry.local"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "release": {
+    "branches": ["main"]
+  }
+}
