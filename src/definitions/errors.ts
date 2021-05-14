@@ -4,7 +4,8 @@
 import { ErrorDefinitions } from '../types';
 import { SUPPORTED_TOOL_LIST } from './constants';
 
-const [homepage]: string = require('../../package.json').homepage.split('#');
+const homepage =
+  'https://github.com/ryansonshine/semantic-release-codeartifact';
 
 const linkify = (file: string): string => `${homepage}/blob/main/${file}`;
 
