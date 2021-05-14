@@ -3,7 +3,7 @@ import { mocked } from 'ts-jest/utils';
 import SemanticReleaseError from '@semantic-release/error';
 import { verifyConditions } from '../src';
 import { makePluginConfig } from './helpers/dummies';
-import { mockContext } from './mocks/mock-context';
+import { getMockContext } from './mocks/mock-context';
 
 jest.mock('../src/verify-auth');
 
@@ -12,6 +12,8 @@ const mockVerifyCodeArtifact = mocked(verifyCodeArtifact);
 describe('index', () => {
   describe('verifyConditions', () => {
     const pluginConfig = makePluginConfig();
+    const mockContext = getMockContext();
+
     beforeEach(() => {
       jest.resetAllMocks();
     });

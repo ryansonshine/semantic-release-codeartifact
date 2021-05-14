@@ -2,7 +2,7 @@ import type { ErrorDefinitions, VerifyConditionsContext } from '../src/types';
 import { verifyNpm } from '../src/verify-npm';
 import { mocked } from 'ts-jest/utils';
 import { makeCodeArtifactConfig, makePluginConfig } from './helpers/dummies';
-import { mockContext } from './mocks/mock-context';
+import { getMockContext } from './mocks/mock-context';
 import readPkg from 'read-pkg';
 import tempy from 'tempy';
 import { copy, readFile, writeFile } from 'fs-extra';
@@ -16,6 +16,7 @@ describe('verify-npm', () => {
   describe('verifyNpm', () => {
     const pluginConfig = makePluginConfig();
     const caConfig = makeCodeArtifactConfig();
+    const mockContext = getMockContext();
 
     beforeEach(() => {
       jest.resetAllMocks();

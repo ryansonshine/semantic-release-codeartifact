@@ -1,6 +1,6 @@
 import { VerifyConditionsContext } from '../../src/types';
 
-export const mockContext: VerifyConditionsContext = {
+export const getMockContext = (): VerifyConditionsContext => ({
   branch: {
     name: 'main',
     type: 'release',
@@ -14,7 +14,11 @@ export const mockContext: VerifyConditionsContext = {
     },
   ],
   cwd: '.',
-  env: {},
+  env: {
+    AWS_ACCESS_KEY_ID: 'test-access-key-id',
+    AWS_REGION: 'test-region',
+    AWS_SECRET_ACCESS_KEY: 'test-secret-access-key',
+  },
   envCi: {
     branch: 'main',
     commit: '123abc',
@@ -42,4 +46,4 @@ export const mockContext: VerifyConditionsContext = {
   // TODO: Appropriate mocking
   stderr: jest.fn() as any,
   stdout: jest.fn() as any,
-};
+});
