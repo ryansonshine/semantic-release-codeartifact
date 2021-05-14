@@ -69,6 +69,20 @@ The required plugins for are: ['${REQUIRED_PLUGINS.join("','")}'].`,
 The package.json \`publishConfig\` registry is '${publishConfig.registry}.'
 The CodeArtifact endpoint is '${repositoryEndpoint}'.`,
   }),
+  ENPMRCCONFIGMISMATCH: ({ repositoryEndpoint, registry }) => ({
+    message: 'Mismatch on CodeArtifact repository and npmrc registry',
+    details: `The registry set in the \`.npmrc\` of your project root does not match the CodeArtifact endpoint.
+
+The \`.npmrc\` registry is '${registry}.'
+The CodeArtifact endpoint is '${repositoryEndpoint}'.`,
+  }),
+  ENPMRCMULTIPLEREGISTRY: ({ registries }) => ({
+    message: 'Multiple registries found in npmrc',
+    details: `Your \`.npmrc\` contains multiple registries but should only contain one.
+
+Please remove extraneous registries from your \`.npmrc\`.
+Registries found: ['${registries.join("','")}'].`,
+  }),
   ENOAUTHTOKEN: () => ({
     message: 'No auth token returned from CodeArtifact client',
     details: `The CodeArtifact client returned and empty value for \`authToken\`.

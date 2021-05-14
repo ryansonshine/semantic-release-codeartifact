@@ -14,6 +14,8 @@ export interface ErrorDefinitions {
   ENOAWSSECRETKEY: () => ErrorDetails;
   EMISSINGPLUGIN: (pluginConfig: Partial<PluginConfig>) => ErrorDetails;
   EPUBLISHCONFIGMISMATCH: (pluginConfig: Partial<PluginConfig>) => ErrorDetails;
+  ENPMRCCONFIGMISMATCH: (pluginConfig: Partial<PluginConfig>) => ErrorDetails;
+  ENPMRCMULTIPLEREGISTRY: (pluginConfig: Partial<PluginConfig>) => ErrorDetails;
   ENOAUTHTOKEN: () => ErrorDetails;
   ENOREPOENDPOINT: () => ErrorDetails;
 }
