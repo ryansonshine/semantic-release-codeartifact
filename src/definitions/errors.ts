@@ -96,4 +96,11 @@ Please check your AWS configuration and try again.`,
 
 Please check your AWS configuration and try again.`,
   }),
+  EAWSSDK: ({ message, name }) => ({
+    message: 'AWS SDK Error',
+    details: `The AWS SDK threw an error while using the CodeArtifact client.
+
+Name: '${name}'
+Message: '${message}'`,
+  }),
 };

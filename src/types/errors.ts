@@ -18,4 +18,13 @@ export interface ErrorDefinitions {
   ENPMRCMULTIPLEREGISTRY: (pluginConfig: Partial<PluginConfig>) => ErrorDetails;
   ENOAUTHTOKEN: () => ErrorDetails;
   ENOREPOENDPOINT: () => ErrorDetails;
+  EAWSSDK: (pluginConfig: Partial<PluginConfig>) => ErrorDetails;
 }
+
+export type AWSError = Error & {
+  $metadata: Record<string, unknown>;
+  code: string;
+  errno: string;
+  hostname: string;
+  syscall: string;
+};

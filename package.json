@@ -50,6 +50,7 @@
     "@types/signale": "^1.4.1",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
+    "aws-sdk-client-mock": "^0.4.0",
     "codecov": "^3.8.1",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",

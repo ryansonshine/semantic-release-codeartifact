@@ -10,13 +10,14 @@ import {
 } from '@aws-sdk/client-codeartifact';
 import { getError } from './get-error';
 import AggregateError from 'aggregate-error';
+import { isAWSError } from './util/type-guards';
 
 export const getCodeArtifactConfig = async (
   pluginConfig: PluginConfig,
   context: VerifyConditionsContext
 ): Promise<CodeArtifactConfig> => {
   const errors = [];
-  const { env, logger } = context;
+  const { env } = context;
   const { domain, domainOwner, tool, repository } = pluginConfig;
   try {
     const client = new CodeartifactClient({
@@ -54,8 +55,20 @@ export const getCodeArtifactConfig = async (
 
     return { authorizationToken, repositoryEndpoint };
   } catch (e) {
-    // TODO: handle aws sdk error
-    logger.error('Failed to get CodeArtifact credentials');
-    throw e;
+    if (e instanceof AggregateError) throw e;
+
+    if (isAWSError(e)) {
+      errors.push(getError('EAWSSDK', { message: e.message, name: e.name }));
+    } else {
+      errors.push(
+        getError('EAWSSDK', {
+          name: 'UnknownException',
+          message:
+            'An unknown error has occured, check the logs for more details.',
+        })
+      );
+    }
+
+    throw new AggregateError(errors);
   }
 };
