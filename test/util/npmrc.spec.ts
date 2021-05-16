@@ -27,5 +27,11 @@ describe('npmrc', () => {
       expect(registry).toMatch(RE_URL);
       expect(otherRegistries).toHaveLength(0);
     });
+
+    it('should not throw when an undefined value is passed in', () => {
+      const registry = getRegistryFromNpmrc();
+
+      expect(registry).toEqual([]);
+    });
   });
 });
