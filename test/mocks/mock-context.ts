@@ -18,6 +18,11 @@ export const getMockContext = (): VerifyConditionsContext => ({
     AWS_ACCESS_KEY_ID: 'test-access-key-id',
     AWS_REGION: 'test-region',
     AWS_SECRET_ACCESS_KEY: 'test-secret-access-key',
+    SR_CA_TOOL: 'npm',
+    SR_CA_DOMAIN: 'my-domain',
+    SR_CA_DOMAIN_OWNER: '123456789',
+    SR_CA_DURATION_SEC: '120',
+    SR_CA_REPOSITORY: 'my-repository',
   },
   envCi: {
     branch: 'main',
