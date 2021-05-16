@@ -10,7 +10,7 @@ export const makePluginConfig = (
   repository: 'test-repository',
   repositoryUrl:
     'https://github.com/ryansonshine/semantic-release-codeartifact.git',
-  domainOwner: '123456789',
+  domainOwner: '012345678912',
   durationSeconds: 600,
   tagFormat: 'v${version}',
   tool: 'npm',
