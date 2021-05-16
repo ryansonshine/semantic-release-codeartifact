@@ -57,7 +57,7 @@ See [AWS Environment variables](${linkify(
       'README.md#aws-environment-variables'
     )}) for more details.`,
   }),
-  EMISSINGPLUGIN: ({ plugin = '', tool = '', REQUIRED_PLUGINS = [] }) => ({
+  EMISSINGPLUGIN: ({ plugin, tool, REQUIRED_PLUGINS }) => ({
     message: 'Missing plugin.',
     details: `The plugin configuration is missing plugin '${plugin}' and is required for '${tool}'.
 
