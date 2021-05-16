@@ -8,7 +8,7 @@
 [![Commitizen Friendly][commitizen-img]][commitizen-url]
 [![Semantic Release][semantic-release-img]][semantic-release-url]
 
-[semantic-release](https://github.com/semantic-release/semantic-release) plugin
+A [semantic-release](https://github.com/semantic-release/semantic-release) plugin
 for publishing packages to [AWS CodeArtifact](https://aws.amazon.com/codeartifact/)
 
 | Step               | Description                                                                                                                                                                                                        |
