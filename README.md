@@ -41,6 +41,8 @@ The plugin can be configured in the [**semantic-release** configuration file](ht
 }
 ```
 
+Check out [the example repo](https://github.com/ryansonshine/semantic-release-codeartifact-example) to see it in action.
+
 See [Additional Usage](#additional-usage) for details on using other tools with this plugin.
 
 ## Configuration
