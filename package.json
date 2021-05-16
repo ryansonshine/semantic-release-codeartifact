@@ -23,6 +23,16 @@
   "engines": {
     "node": ">=10.0"
   },
+  "keywords": [
+    "aws",
+    "codeartifact",
+    "semver",
+    "package",
+    "publish",
+    "automation",
+    "semantic versioning",
+    "semantic-release"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "tsc",
