@@ -80,6 +80,14 @@ specified by plugin config will take precedence over these environment variables
 | `domainOwner`      | The AWS Account ID that owns your CodeArtifact domain                  | `SR_CA_DOMAIN_OWNER` environment variable |
 | `durationSections` | The time, in seconds, that login information for CodeArtifact is valid | `7200` (2 hours)                          |
 
+## Recipes
+
+### CI Configurations
+
+- Github Actions ([coming soon](https://github.com/ryansonshine/semantic-release-codeartifact/issues/5))
+- GitLab ([coming soon](https://github.com/ryansonshine/semantic-release-codeartifact/issues/6))
+- CircleCI ([coming soon](https://github.com/ryansonshine/semantic-release-codeartifact/issues/7))
+
 ## Additional Usage
 
 CodeArtifact supports multiple tools including npm (JavaScript), Maven and Gradle
