@@ -1,4 +1,4 @@
-# semantic-release-codeartifact
+# Semantic Release CodeArtifact
 
 [![npm package][npm-img]][npm-url]
 [![Build Status][build-img]][build-url]
