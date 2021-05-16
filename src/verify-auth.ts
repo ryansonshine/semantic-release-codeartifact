@@ -22,7 +22,5 @@ export const verifyCodeArtifact = async (
     context
   );
 
-  await verifyNpm(resolvedConfig, context, codeArtifactConfig, errors);
-
-  return errors;
+  return await verifyNpm(resolvedConfig, context, codeArtifactConfig, errors);
 };

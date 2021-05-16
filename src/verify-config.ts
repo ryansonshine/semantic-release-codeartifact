@@ -28,7 +28,7 @@ export const verifyConfig = (
   }
 
   if (!env.AWS_ACCESS_KEY_ID) {
-    errors.push(getError('ENOAWSKEYID'));
+    errors.push(getError('ENOAWSACCESSKEY'));
   }
 
   if (!env.AWS_SECRET_ACCESS_KEY) {

@@ -7,8 +7,6 @@ declare global {
       SR_CA_DOMAIN?: string;
       /** The AWS Account ID that owns your CodeArtifact domain */
       SR_CA_DOMAIN_OWNER?: string;
-      /** Associates a namespace with your repository tool */
-      SR_CA_NAMESPACE?: string;
       /** The time, in seconds, that the login information is valid */
       SR_CA_DURATION_SEC?: string;
       /** Your CodeArtifact repository name */

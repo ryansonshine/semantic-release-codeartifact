@@ -5,10 +5,11 @@ import type {
   VerifyConditionsContext,
 } from './types';
 import { resolve } from 'path';
-import { outputFile } from 'fs-extra';
+import { appendFile, pathExists, readFile, writeFile } from 'fs-extra';
 import readPkg from 'read-pkg';
 import { getError } from './get-error';
-import { removeTrailingSlash } from './util/string';
+import { isUrlMatch } from './util/url';
+import { getRegistryFromNpmrc } from './util/npmrc';
 
 const REQUIRED_PLUGINS = ['@semantic-release/npm'];
 
@@ -18,7 +19,9 @@ export const verifyNpm = async (
   { authorizationToken, repositoryEndpoint }: CodeArtifactConfig,
   errors: SemanticReleaseError[]
 ): Promise<SemanticReleaseError[]> => {
-  // Check for required plugins
+  const { publishConfig = {} } = await readPkg({ cwd });
+  const npmrcPath = resolve(cwd, '.npmrc');
+
   for (const plugin of REQUIRED_PLUGINS) {
     logger.log('Verifying plugin "%s" exists in config', plugin);
     if (!plugins.includes(plugin)) {
@@ -29,18 +32,12 @@ export const verifyNpm = async (
     }
   }
 
-  // Check for publishConfig in package.json
-  const { publishConfig = {} } = await readPkg({ cwd });
-
-  if (publishConfig?.registry) {
+  if (publishConfig.registry) {
     logger.log(
-      'Validating publishConfig registry from package.json matches CodeArtifact endpoint'
+      'Validating `publishConfig.registry` from `package.json` matches CodeArtifact endpoint'
     );
 
-    if (
-      removeTrailingSlash(publishConfig.registry) !==
-      removeTrailingSlash(repositoryEndpoint)
-    ) {
+    if (!isUrlMatch(publishConfig.registry, repositoryEndpoint)) {
       errors.push(
         getError('EPUBLISHCONFIGMISMATCH', {
           repositoryEndpoint,
@@ -49,12 +46,54 @@ export const verifyNpm = async (
       );
       return errors;
     }
+
+    logger.log(
+      'Validated `publishConfig.registry` matches CodeArtifact endpoint %s',
+      repositoryEndpoint
+    );
+  }
+
+  if (await pathExists(npmrcPath)) {
+    logger.log('Validating `.npmrc` matches CodeArtifact endpoint');
+    const npmrc = await readFile(npmrcPath, 'utf8');
+    const [registry, ...otherRegistries] = getRegistryFromNpmrc(npmrc);
+
+    // npmrc exists but no registries are listed
+    if (registry) {
+      if (otherRegistries.length) {
+        errors.push(
+          getError('ENPMRCMULTIPLEREGISTRY', {
+            registries: [registry, ...otherRegistries],
+          })
+        );
+      }
+
+      if (!isUrlMatch(registry, repositoryEndpoint)) {
+        errors.push(
+          getError('ENPMRCCONFIGMISMATCH', { repositoryEndpoint, registry })
+        );
+      }
+    } else {
+      // append to existing npmrc
+      logger.log(
+        'No registry found in existing `.npmrc`, appending CodeArtifact registry'
+      );
+      await appendFile(
+        npmrcPath,
+        `\nregistry=${repositoryEndpoint}\n//${repositoryEndpoint.replace(
+          /(^\w+:|^)\/\//,
+          ''
+        )}:always-auth=true\n`
+      );
+    }
   } else {
-    logger.info('Writing npmrc with CodeArtifact repository');
-    const npmrc = resolve(cwd, '.npmrc');
-    await outputFile(
-      npmrc,
-      `registry=${repositoryEndpoint}\n//${repositoryEndpoint}:always-auth=true`
+    // If no .npmrc exists, create one
+    await writeFile(
+      npmrcPath,
+      `registry=${repositoryEndpoint}\n//${repositoryEndpoint.replace(
+        /(^\w+:|^)\/\//,
+        ''
+      )}:always-auth=true\n`
     );
   }
 

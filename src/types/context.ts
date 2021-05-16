@@ -1,6 +1,7 @@
 import type SemanticReleaseError from '@semantic-release/error';
 import type { WriteStream } from 'fs';
 import type { Signale } from 'signale';
+import type { KnownKeys } from './util';
 
 /** Context keys shared across all lifecycle methods */
 export interface CommonContext {
@@ -105,13 +106,15 @@ export interface PluginConfig extends OptionsBase {
   domain: string;
   /** The AWS Account ID that owns your CodeArtifact domain */
   domainOwner?: string;
-  /** Associates a namespace with your repository tool */
-  namespace?: string;
   /** The time, in seconds, that the login information is valid */
   durationSeconds?: number;
   /** Your CodeArtifact repository name */
   repository: string;
 }
+
+export type PluginConfigKey = KnownKeys<
+  Exclude<PluginConfig, keyof OptionsBase>
+>;
 
 export type Channel = null | string;
 

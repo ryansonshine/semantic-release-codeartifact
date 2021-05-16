@@ -4,7 +4,8 @@
 import { ErrorDefinitions } from '../types';
 import { SUPPORTED_TOOL_LIST } from './constants';
 
-const [homepage]: string = require('../../../package.json').homepage.split('#');
+const homepage =
+  'https://github.com/ryansonshine/semantic-release-codeartifact';
 
 const linkify = (file: string): string => `${homepage}/blob/main/${file}`;
 
@@ -29,7 +30,7 @@ Your configuration for the \`tool\` option is \`${tool}\`.`,
       'README.md#options'
     )}) must be set in the plugin options.`,
   }),
-  ENOAWSKEYID: () => ({
+  ENOAWSACCESSKEY: () => ({
     message: 'No AWS access key specified.',
     details: `An [AWS Access Key ID](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#accesskeyID) must be specified to get an auth token from CodeArtifact.
 
@@ -56,7 +57,7 @@ See [AWS Environment variables](${linkify(
       'README.md#aws-environment-variables'
     )}) for more details.`,
   }),
-  EMISSINGPLUGIN: ({ plugin = '', tool = '', REQUIRED_PLUGINS = [] }) => ({
+  EMISSINGPLUGIN: ({ plugin, tool, REQUIRED_PLUGINS }) => ({
     message: 'Missing plugin.',
     details: `The plugin configuration is missing plugin '${plugin}' and is required for '${tool}'.
 
@@ -69,6 +70,20 @@ The required plugins for are: ['${REQUIRED_PLUGINS.join("','")}'].`,
 The package.json \`publishConfig\` registry is '${publishConfig.registry}.'
 The CodeArtifact endpoint is '${repositoryEndpoint}'.`,
   }),
+  ENPMRCCONFIGMISMATCH: ({ repositoryEndpoint, registry }) => ({
+    message: 'Mismatch on CodeArtifact repository and npmrc registry',
+    details: `The registry set in the \`.npmrc\` of your project root does not match the CodeArtifact endpoint.
+
+The \`.npmrc\` registry is '${registry}.'
+The CodeArtifact endpoint is '${repositoryEndpoint}'.`,
+  }),
+  ENPMRCMULTIPLEREGISTRY: ({ registries }) => ({
+    message: 'Multiple registries found in npmrc',
+    details: `Your \`.npmrc\` contains multiple registries but should only contain one.
+
+Please remove extraneous registries from your \`.npmrc\`.
+Registries found: ['${registries.join("','")}'].`,
+  }),
   ENOAUTHTOKEN: () => ({
     message: 'No auth token returned from CodeArtifact client',
     details: `The CodeArtifact client returned and empty value for \`authToken\`.
@@ -80,5 +95,12 @@ Please check your AWS configuration and try again.`,
     details: `The CodeArtifact client returned and empty value for \`repositoryEndpoint\`.
 
 Please check your AWS configuration and try again.`,
+  }),
+  EAWSSDK: ({ message, name }) => ({
+    message: 'AWS SDK Error',
+    details: `The AWS SDK threw an error while using the CodeArtifact client.
+
+Name: '${name}'
+Message: '${message}'`,
   }),
 };
