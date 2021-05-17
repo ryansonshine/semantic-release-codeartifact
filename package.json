@@ -40,6 +40,7 @@
     "cm": "cz",
     "coverage": "codecov",
     "lint": "eslint ./src/ --fix",
+    "prepare": "husky install",
     "semantic-release": "semantic-release",
     "start": "TS_NODE_FILES=true ts-node ./src/cli.ts",
     "test:watch": "jest --watch",
