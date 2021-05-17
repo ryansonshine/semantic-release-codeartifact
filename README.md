@@ -73,9 +73,9 @@ Check out [this example repo](https://github.com/ryansonshine/semantic-release-c
 In order to use **semantic-release** you need:
 
 - To host your code in a [Git repository](https://git-scm.com)
-- Use a Continuous Integration service that allows you to [securely set up credentials](docs/usage/ci-configuration.md#authentication)
-- Git CLI version [2.7.1 or higher](docs/support/FAQ.md#why-does-semantic-release-require-git-version--271) installed in your Continuous Integration environment
-- [Node.js](https://nodejs.org) version [10.18 or higher](docs/support/FAQ.md#why-does-semantic-release-require-node-version--1018) installed in your Continuous Integration environment
+- Use a Continuous Integration service that allows you to [securely set up credentials](https://github.com/semantic-release/semantic-release/blob/master/docs/usage/ci-configuration.md#authentication)
+- Git CLI version [2.7.1 or higher](https://github.com/semantic-release/semantic-release/blob/master/docs/support/FAQ.md#why-does-semantic-release-require-git-version--271) installed in your Continuous Integration environment
+- [Node.js](https://nodejs.org) version [10.18 or higher](https://github.com/semantic-release/semantic-release/blob/master/docs/support/FAQ.md#why-does-semantic-release-require-node-version--1018) installed in your Continuous Integration environment
 
 In order to use **semantic-release-codeartifact** you need:
 
