@@ -214,7 +214,7 @@ npm install --save-dev semantic-release semantic-release-codeartifact
 
 [Support for Gradle coming soon](https://github.com/ryansonshine/semantic-release-codeartifact/issues/10)
 
-[build-img]:https://travis-ci.com/ryansonshine/semantic-release-codeartifact.svg?branch=master
+[build-img]:https://travis-ci.com/ryansonshine/semantic-release-codeartifact.svg?branch=main
 [build-url]:https://travis-ci.com/ryansonshine/semantic-release-codeartifact
 [downloads-img]:https://img.shields.io/npm/dt/semantic-release-codeartifact
 [downloads-url]:https://www.npmtrends.com/semantic-release-codeartifact
@@ -222,7 +222,7 @@ npm install --save-dev semantic-release semantic-release-codeartifact
 [npm-url]:https://www.npmjs.com/package/semantic-release-codeartifact
 [issues-img]:https://img.shields.io/github/issues/ryansonshine/semantic-release-codeartifact
 [issues-url]:https://github.com/ryansonshine/semantic-release-codeartifact/issues
-[codecov-img]:https://codecov.io/gh/ryansonshine/semantic-release-codeartifact/branch/master/graph/badge.svg
+[codecov-img]:https://codecov.io/gh/ryansonshine/semantic-release-codeartifact/branch/main/graph/badge.svg
 [codecov-url]:https://codecov.io/gh/ryansonshine/semantic-release-codeartifact
 [semantic-release-img]:https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
 [semantic-release-url]:https://github.com/semantic-release/semantic-release
