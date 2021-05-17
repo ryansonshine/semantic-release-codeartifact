@@ -9,16 +9,14 @@
 [![Semantic Release][semantic-release-img]][semantic-release-url]
 
 A [semantic-release](https://github.com/semantic-release/semantic-release) plugin
-for publishing packages to [AWS CodeArtifact](https://aws.amazon.com/codeartifact/)
-
-| Step               | Description                                                                                                                                                                                                        |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `verifyConditions` | Verify the presence and the validity of the authentication (set via [configuration](#configuration)), and provide authentication values to the semantic-release plugin related to the CodeArtifact tool being used |
+for publishing packages to [AWS CodeArtifact](https://aws.amazon.com/codeartifact/),
+allowing you fully automate your package release workflow while adhering to the
+[Semantic Versioning](https://semver.org/) specification.
 
 ## Install
 
 ```bash
-npm install --save-dev semantic-release-codeartifact
+npm install -D semantic-release semantic-release-codeartifact
 ```
 
 ## Usage
@@ -81,6 +79,12 @@ specified by plugin config will take precedence over these environment variables
 | `repository`       | **Required.** Your CodeArtifact repository name                        | `SR_CA_REPOSITORY` environment variable   |
 | `domainOwner`      | The AWS Account ID that owns your CodeArtifact domain                  | `SR_CA_DOMAIN_OWNER` environment variable |
 | `durationSections` | The time, in seconds, that login information for CodeArtifact is valid | `7200` (2 hours)                          |
+
+## Lifecycle Hooks
+
+| Step               | Description                                                                                                                                                                                                        |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `verifyConditions` | Verify the presence and the validity of the authentication (set via [configuration](#configuration)), and provide authentication values to the semantic-release plugin related to the CodeArtifact tool being used |
 
 ## Recipes
 
