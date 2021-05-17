@@ -12,7 +12,7 @@
 A [semantic-release](https://github.com/semantic-release/semantic-release) plugin
 for publishing packages to [AWS CodeArtifact](https://aws.amazon.com/codeartifact/),
 allowing you fully automate your package release workflow while adhering to the
-[Semantic Versioning](https://semver.org/) specification.
+[Semantic Versioning](https://semver.org/) (SemVer) specification.
 
 <!-- omit in toc -->
 ## Table of Contents
