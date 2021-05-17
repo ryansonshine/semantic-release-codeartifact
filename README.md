@@ -128,6 +128,9 @@ an auth token for CodeArtifact.
 | `AWS_SECRET_ACCESS_KEY` | **Required.**  Your AWS Secret Access Key                |
 | `AWS_SESSION_TOKEN`     | Session token if you have/need it                        |
 
+**Note:** Proxy configurations are supported and will be used if HTTP_PROXY or HTTPS_PROXY
+is found on the environment with [aws-sdk-v3-proxy](https://github.com/ryansonshine/aws-sdk-v3-proxy).
+
 ### Plugin environment variables
 
 The following environment variables can be set to configure the plugin. [Options](#options)

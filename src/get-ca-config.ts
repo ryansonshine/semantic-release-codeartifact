@@ -11,6 +11,7 @@ import {
 import { getError } from './get-error';
 import AggregateError from 'aggregate-error';
 import { isAWSError } from './util/type-guards';
+import { addProxyToClient } from 'aws-sdk-v3-proxy';
 
 export const getCodeArtifactConfig = async (
   pluginConfig: PluginConfig,
@@ -20,13 +21,16 @@ export const getCodeArtifactConfig = async (
   const { env } = context;
   const { domain, domainOwner, tool, repository } = pluginConfig;
   try {
-    const client = new CodeartifactClient({
-      credentials: {
-        accessKeyId: env.AWS_ACCESS_KEY_ID as string,
-        secretAccessKey: env.AWS_SECRET_ACCESS_KEY as string,
-      },
-      region: env.AWS_REGION,
-    });
+    const client = addProxyToClient(
+      new CodeartifactClient({
+        credentials: {
+          accessKeyId: env.AWS_ACCESS_KEY_ID as string,
+          secretAccessKey: env.AWS_SECRET_ACCESS_KEY as string,
+        },
+        region: env.AWS_REGION,
+      }),
+      { throwOnNoProxy: false }
+    );
 
     const getTokenCmd = new GetAuthorizationTokenCommand({
       domain,
