@@ -1,3 +1,4 @@
+<!-- omit in toc -->
 # Semantic Release CodeArtifact
 
 [![npm package][npm-img]][npm-url]
@@ -12,6 +13,28 @@ A [semantic-release](https://github.com/semantic-release/semantic-release) plugi
 for publishing packages to [AWS CodeArtifact](https://aws.amazon.com/codeartifact/),
 allowing you fully automate your package release workflow while adhering to the
 [Semantic Versioning](https://semver.org/) specification.
+
+<!-- omit in toc -->
+## Table of Contents
+
+- [Install](#install)
+- [Usage](#usage)
+  - [Example Repository](#example-repository)
+- [Requirements](#requirements)
+  - [IAM Policy for Publishing](#iam-policy-for-publishing)
+- [Configuration](#configuration)
+  - [AWS Environment variables](#aws-environment-variables)
+  - [Plugin environment variables](#plugin-environment-variables)
+  - [Options](#options)
+- [Lifecycle Hooks](#lifecycle-hooks)
+- [Recipes](#recipes)
+  - [CI Configurations](#ci-configurations)
+- [Additional Usage](#additional-usage)
+  - [JavaScript - npm](#javascript---npm)
+    - [Plugin Configuration with npm](#plugin-configuration-with-npm)
+  - [pip - Python](#pip---python)
+  - [Maven - Java](#maven---java)
+  - [Gradle - Java](#gradle---java)
 
 ## Install
 
@@ -39,9 +62,11 @@ The plugin can be configured in the [**semantic-release** configuration file](ht
 }
 ```
 
-Check out [the example repo](https://github.com/ryansonshine/semantic-release-codeartifact-example) to see it in action.
-
 See [Additional Usage](#additional-usage) for details on using other tools with this plugin.
+
+### Example Repository
+
+Check out [the example repo](https://github.com/ryansonshine/semantic-release-codeartifact-example) to see it in action.
 
 ## Requirements
 
