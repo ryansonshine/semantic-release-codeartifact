@@ -19,7 +19,7 @@ allowing you fully automate your package release workflow while adhering to the
 
 - [Install](#install)
 - [Usage](#usage)
-  - [Example Repository](#example-repository)
+- [Demo](#demo)
 - [Requirements](#requirements)
   - [IAM Policy for Publishing](#iam-policy-for-publishing)
 - [Configuration](#configuration)
@@ -64,9 +64,9 @@ The plugin can be configured in the [**semantic-release** configuration file](ht
 
 See [Additional Usage](#additional-usage) for details on using other tools with this plugin.
 
-### Example Repository
+## Demo
 
-Check out [the example repo](https://github.com/ryansonshine/semantic-release-codeartifact-example) to see it in action.
+Check out [this example repo](https://github.com/ryansonshine/semantic-release-codeartifact-example) to see it in action.
 
 ## Requirements
 
