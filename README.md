@@ -43,6 +43,52 @@ Check out [the example repo](https://github.com/ryansonshine/semantic-release-co
 
 See [Additional Usage](#additional-usage) for details on using other tools with this plugin.
 
+## Requirements
+
+In order to use **semantic-release** you need:
+
+- To host your code in a [Git repository](https://git-scm.com)
+- Use a Continuous Integration service that allows you to [securely set up credentials](docs/usage/ci-configuration.md#authentication)
+- Git CLI version [2.7.1 or higher](docs/support/FAQ.md#why-does-semantic-release-require-git-version--271) installed in your Continuous Integration environment
+- [Node.js](https://nodejs.org) version [10.18 or higher](docs/support/FAQ.md#why-does-semantic-release-require-node-version--1018) installed in your Continuous Integration environment
+
+In order to use **semantic-release-codeartifact** you need:
+
+- An [AWS Account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/)
+- An [AWS CodeArtifact](https://aws.amazon.com/codeartifact/) repository
+- A role your CI environment can assume with sufficient [IAM permissions to publish packages](#iam-policy-for-publishing) with CodeArtifact
+
+### IAM Policy for Publishing
+
+The IAM role used by your CI environment will need the following permissions:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "codeartifact:GetAuthorizationToken",
+        "codeartifact:GetRepositoryEndpoint",
+        "codeartifact:PublishPackageVersion"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "sts:GetServiceBearerToken",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "sts:AWSServiceName": "codeartifact.amazonaws.com"
+        }
+      }
+    }
+  ]
+}
+```
+
 ## Configuration
 
 ### AWS Environment variables
