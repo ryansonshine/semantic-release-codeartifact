@@ -4,7 +4,7 @@ import { mocked } from 'ts-jest/utils';
 import { getCodeArtifactConfig } from '../src/get-ca-config';
 import { resolveConfig } from '../src/resolve-config';
 import { PluginConfig } from '../src/types';
-import { verifyCodeArtifact } from '../src/verify-auth';
+import { verifyCodeArtifact } from '../src/verify-ca-auth';
 import { verifyConfig } from '../src/verify-config';
 import { verifyNpm } from '../src/verify-npm';
 import { makeCodeArtifactConfig, makePluginConfig } from './helpers/dummies';
@@ -19,7 +19,7 @@ const mockVerifyConfig = mocked(verifyConfig, true);
 const mockGetCodeArtifactConfig = mocked(getCodeArtifactConfig, true);
 const mockVerifyNpm = mocked(verifyNpm, true);
 
-describe('verify-auth', () => {
+describe('verify-ca-auth', () => {
   describe('verifyCodeArtifact', () => {
     const config = makePluginConfig();
     const context = getMockContext();

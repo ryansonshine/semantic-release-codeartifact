@@ -1,11 +1,11 @@
-import { verifyCodeArtifact } from '../src/verify-auth';
+import { verifyCodeArtifact } from '../src/verify-ca-auth';
 import { mocked } from 'ts-jest/utils';
 import SemanticReleaseError from '@semantic-release/error';
 import { verifyConditions } from '../src';
 import { makePluginConfig } from './helpers/dummies';
 import { getMockContext } from './mocks/mock-context';
 
-jest.mock('../src/verify-auth');
+jest.mock('../src/verify-ca-auth');
 
 const mockVerifyCodeArtifact = mocked(verifyCodeArtifact);
 
