@@ -219,8 +219,8 @@ npm install --save-dev semantic-release semantic-release-codeartifact
 
 [Support for Gradle coming soon](https://github.com/ryansonshine/semantic-release-codeartifact/issues/10)
 
-[build-img]:https://travis-ci.com/ryansonshine/semantic-release-codeartifact.svg?branch=main
-[build-url]:https://travis-ci.com/ryansonshine/semantic-release-codeartifact
+[build-img]:https://github.com/ryansonshine/semantic-release-codeartifact/actions/workflows/release.yml/badge.svg
+[build-url]:https://github.com/ryansonshine/semantic-release-codeartifact/actions/workflows/release.yml
 [downloads-img]:https://img.shields.io/npm/dt/semantic-release-codeartifact
 [downloads-url]:https://www.npmtrends.com/semantic-release-codeartifact
 [npm-img]:https://img.shields.io/npm/v/semantic-release-codeartifact
