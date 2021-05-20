@@ -210,15 +210,15 @@ npm install --save-dev semantic-release semantic-release-codeartifact
 
 ### pip - Python
 
-[Support for pip coming soon](https://github.com/ryansonshine/semantic-release-codeartifact/issues/8)
+Support for pip coming soon
 
 ### Maven - Java
 
-[Support for Maven coming soon](https://github.com/ryansonshine/semantic-release-codeartifact/issues/9)
+Support for Maven coming soon
 
 ### Gradle - Java
 
-[Support for Gradle coming soon](https://github.com/ryansonshine/semantic-release-codeartifact/issues/10)
+Support for Gradle coming soon
 
 [build-img]:https://github.com/ryansonshine/semantic-release-codeartifact/actions/workflows/release.yml/badge.svg
 [build-url]:https://github.com/ryansonshine/semantic-release-codeartifact/actions/workflows/release.yml
