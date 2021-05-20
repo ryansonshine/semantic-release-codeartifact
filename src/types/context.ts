@@ -110,6 +110,8 @@ export interface PluginConfig extends OptionsBase {
   durationSeconds?: number;
   /** Your CodeArtifact repository name */
   repository: string;
+  /** Skips the check for required plugins based on CodeArtifact tool */
+  skipPluginCheck?: boolean;
 }
 
 export type PluginConfigKey = KnownKeys<

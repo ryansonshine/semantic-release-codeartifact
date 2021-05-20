@@ -10,27 +10,22 @@ import readPkg from 'read-pkg';
 import { getError } from './get-error';
 import { isUrlMatch } from './util/url';
 import { getRegistryFromNpmrc } from './util/npmrc';
+import { verifyPlugins } from './verify-plugins';
 
 const REQUIRED_PLUGINS = ['@semantic-release/npm'];
 
 export const verifyNpm = async (
-  { tool }: PluginConfig,
-  { cwd, logger, options: { plugins } }: VerifyConditionsContext,
+  pluginConfig: PluginConfig,
+  context: VerifyConditionsContext,
   { authorizationToken, repositoryEndpoint }: CodeArtifactConfig,
   errors: SemanticReleaseError[]
 ): Promise<SemanticReleaseError[]> => {
+  const { cwd, logger } = context;
+
   const { publishConfig = {} } = await readPkg({ cwd });
   const npmrcPath = resolve(cwd, '.npmrc');
 
-  for (const plugin of REQUIRED_PLUGINS) {
-    logger.log('Verifying plugin "%s" exists in config', plugin);
-    if (!plugins.includes(plugin)) {
-      logger.error('Missing plugin %s', plugin);
-      errors.push(
-        getError('EMISSINGPLUGIN', { plugin, tool, plugins, REQUIRED_PLUGINS })
-      );
-    }
-  }
+  verifyPlugins(pluginConfig, context, REQUIRED_PLUGINS, errors);
 
   if (publishConfig.registry) {
     logger.log(

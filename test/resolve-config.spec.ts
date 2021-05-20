@@ -16,6 +16,7 @@ const pluginConfigKeys: PluginConfigKey[] = [
   'durationSeconds',
   'repository',
   'tool',
+  'skipPluginCheck',
 ];
 
 describe('resolve-config', () => {
@@ -114,6 +115,17 @@ describe('resolve-config', () => {
       expect(resolvedConfig.domainOwner).toBeUndefined();
       expect(resolvedConfig.durationSeconds).toEqual(DEFAULT_DURATION_SECONDS);
       expect(resolvedConfig.repository).toEqual('');
+    });
+
+    it('should resolve skipPluginCheck to false when value is undefined', () => {
+      const configWithPluginSkip: PluginConfig = {
+        ...makePluginConfig(),
+        skipPluginCheck: undefined,
+      };
+
+      const resolvedConfig = resolveConfig(configWithPluginSkip, context);
+
+      expect(resolvedConfig.skipPluginCheck).toEqual(false);
     });
   });
 });

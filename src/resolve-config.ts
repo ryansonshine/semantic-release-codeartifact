@@ -15,4 +15,5 @@ export const resolveConfig = (
     DEFAULT_DURATION_SECONDS
   ),
   repository: pluginConfig.repository || env.SR_CA_REPOSITORY || '',
+  skipPluginCheck: pluginConfig.skipPluginCheck ?? false,
 });

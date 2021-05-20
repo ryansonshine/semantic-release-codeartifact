@@ -131,7 +131,7 @@ an auth token for CodeArtifact.
 | `AWS_SESSION_TOKEN`     | Session token if you have/need it                        |
 
 **Note:** Proxy configurations are supported and will be used if HTTP_PROXY or HTTPS_PROXY
-is found on the environment with [aws-sdk-v3-proxy](https://github.com/ryansonshine/aws-sdk-v3-proxy).
+is found on the environment using [aws-sdk-v3-proxy](https://github.com/ryansonshine/aws-sdk-v3-proxy).
 
 ### Plugin environment variables
 
@@ -148,13 +148,14 @@ specified by plugin config will take precedence over these environment variables
 
 ### Options
 
-| Option             | Description                                                            | Default                                   |
-| ------------------ | ---------------------------------------------------------------------- | ----------------------------------------- |
-| `tool`             | **Required.** Tool to connect with the CodeArtifact repository         | `SR_CA_TOOL` environment variable.        |
-| `domain`           | **Required.** Your CodeArtifact domain name                            | `SR_CA_DOMAIN` environment variable.      |
-| `repository`       | **Required.** Your CodeArtifact repository name                        | `SR_CA_REPOSITORY` environment variable   |
-| `domainOwner`      | The AWS Account ID that owns your CodeArtifact domain                  | `SR_CA_DOMAIN_OWNER` environment variable |
-| `durationSections` | The time, in seconds, that login information for CodeArtifact is valid | `7200` (2 hours)                          |
+| Option             | Description                                                                                                             | Default                                    |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| `tool`             | **Required.** Tool to connect with the CodeArtifact repository                                                          | `SR_CA_TOOL` environment variable.         |
+| `domain`           | **Required.** Your CodeArtifact domain name                                                                             | `SR_CA_DOMAIN` environment variable.       |
+| `repository`       | **Required.** Your CodeArtifact repository name                                                                         | `SR_CA_REPOSITORY` environment variable.   |
+| `domainOwner`      | The AWS Account ID that owns your CodeArtifact domain                                                                   | `SR_CA_DOMAIN_OWNER` environment variable. |
+| `durationSections` | The time, in seconds, that login information for CodeArtifact is valid                                                  | `7200` (2 hours)                           |
+| `skipPluginCheck`  | Skips the check for required plugins, this can be used if you are using your own custom plugins for your specified tool | `false`                                    |
 
 ## Lifecycle Hooks
 

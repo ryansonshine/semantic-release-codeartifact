@@ -57,11 +57,11 @@ See [AWS Environment variables](${linkify(
       'README.md#aws-environment-variables'
     )}) for more details.`,
   }),
-  EMISSINGPLUGIN: ({ plugin, tool, REQUIRED_PLUGINS }) => ({
+  EMISSINGPLUGIN: ({ plugin, tool, requiredPlugins }) => ({
     message: 'Missing plugin.',
     details: `The plugin configuration is missing plugin '${plugin}' and is required for '${tool}'.
 
-The required plugins for are: ['${REQUIRED_PLUGINS.join("','")}'].`,
+The required plugins for are: ['${requiredPlugins.join("','")}'].`,
   }),
   EPUBLISHCONFIGMISMATCH: ({ repositoryEndpoint, publishConfig }) => ({
     message: 'Mismatch on CodeArtifact repository and publishConfig.',

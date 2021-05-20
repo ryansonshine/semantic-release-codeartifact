@@ -14,6 +14,7 @@ export const makePluginConfig = (
   durationSeconds: 600,
   tagFormat: 'v${version}',
   tool: 'npm',
+  skipPluginCheck: false,
   ...overrides,
 });
 

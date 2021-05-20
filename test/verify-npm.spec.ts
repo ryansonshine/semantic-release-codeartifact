@@ -1,4 +1,8 @@
-import type { ErrorDefinitions, VerifyConditionsContext } from '../src/types';
+import type {
+  ErrorDefinitions,
+  PluginConfig,
+  VerifyConditionsContext,
+} from '../src/types';
 import { verifyNpm } from '../src/verify-npm';
 import { makeCodeArtifactConfig, makePluginConfig } from './helpers/dummies';
 import { getMockContext } from './mocks/mock-context';
@@ -46,6 +50,34 @@ describe('verify-npm', () => {
 
         expect(error?.code).toEqual(missingPluginCode);
         expect(error?.name).toEqual('SemanticReleaseError');
+      });
+    });
+
+    it('should NOT add an error when missing a plugin from the list of required plugins while skipPluginCheck is true', async () => {
+      await tempy.directory.task(async cwd => {
+        const contextWithoutPlugins: VerifyConditionsContext = {
+          ...mockContext,
+          cwd,
+          options: {
+            ...mockContext.options,
+            plugins: [],
+          },
+        };
+        const configWithSkip: PluginConfig = {
+          ...pluginConfig,
+          skipPluginCheck: true,
+        };
+        await copy(fixtures, cwd);
+        await copyDefaultPackage(cwd);
+
+        const [error] = await verifyNpm(
+          configWithSkip,
+          contextWithoutPlugins,
+          caConfig,
+          []
+        );
+
+        expect(error).toBeUndefined();
       });
     });
 
