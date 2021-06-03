@@ -131,7 +131,7 @@ an auth token for CodeArtifact.
 | `AWS_SESSION_TOKEN`     | Session token if you have/need it                        |
 
 **Note:** Proxy configurations are supported and will be used if HTTP_PROXY or HTTPS_PROXY
-is found on the environment using [aws-sdk-v3-proxy](https://github.com/ryansonshine/aws-sdk-v3-proxy).
+is found on the environment using [aws-sdk-v3-proxy](https://github.com/awslabs/aws-sdk-v3-js-proxy).
 
 ### Plugin environment variables
 
