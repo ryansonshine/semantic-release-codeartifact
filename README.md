@@ -34,9 +34,9 @@ with semantic-release.
 - [Additional Usage](#additional-usage)
   - [JavaScript - npm](#javascript---npm)
     - [Plugin Configuration with npm](#plugin-configuration-with-npm)
-  - [pip - Python](#pip---python)
-  - [Maven - Java](#maven---java)
-  - [Gradle - Java](#gradle---java)
+  - [Python - pip](#python---pip)
+  - [Java - Maven](#java---maven)
+  - [Java - Gradle](#java---gradle)
 
 ## Install
 
@@ -208,15 +208,15 @@ npm install --save-dev semantic-release semantic-release-codeartifact
 
 **Note:** `semantic-release-codeartifact` must be listed before `@semantic-release/npm`
 
-### pip - Python
+### Python - pip
 
 Support for pip coming soon
 
-### Maven - Java
+### Java - Maven
 
 Support for Maven coming soon
 
-### Gradle - Java
+### Java - Gradle
 
 Support for Gradle coming soon
 
