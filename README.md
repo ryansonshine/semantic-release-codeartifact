@@ -12,9 +12,9 @@
 >A [semantic-release](https://github.com/semantic-release/semantic-release) plugin
 >for publishing packages to [AWS CodeArtifact](https://aws.amazon.com/codeartifact/).
 
-Automate your entire package release workflow including: determining the next version number,
-generating release notes, and publishing packages to CodeArtifact using this plugin
-with semantic-release.
+Automate your entire package release workflow including: determining the next
+version number, generating release notes, and publishing packages to
+CodeArtifact using this plugin with semantic-release.
 
 <!-- omit in toc -->
 ## Table of Contents
