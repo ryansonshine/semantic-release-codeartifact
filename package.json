@@ -21,7 +21,7 @@
     }
   ],
   "engines": {
-    "node": ">=10.0"
+    "node": ">=12.0"
   },
   "keywords": [
     "aws",
@@ -57,7 +57,7 @@
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.11",
-    "@types/jest": "^26.0.23",
+    "@types/jest": "^26.0.24",
     "@types/node": "^12.20.11",
     "@types/signale": "^1.4.1",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
@@ -71,14 +71,14 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.4.0",
     "husky": "^6.0.0",
-    "jest": "^26.6.3",
+    "jest": "^27.2.0",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "semantic-release": "^17.4.7",
     "signale": "^1.4.0",
     "tempy": "^1.0.1",
-    "ts-jest": "^26.5.5",
-    "ts-node": "^9.1.1",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
     "typescript": "^4.2.4"
   },
   "config": {
