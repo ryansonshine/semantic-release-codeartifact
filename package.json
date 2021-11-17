@@ -55,9 +55,6 @@
     "read-pkg": "5.2.0",
     "save": "^2.4.0"
   },
-  "peerDependencies": {
-    "semantic-release": "^18.0.0"
-  },
   "devDependencies": {
     "@types/fs-extra": "^9.0.11",
     "@types/jest": "^26.0.24",
