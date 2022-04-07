@@ -167,9 +167,9 @@ specified by plugin config will take precedence over these environment variables
 
 ### CI Configurations
 
-- Github Actions ([coming soon](https://github.com/ryansonshine/semantic-release-codeartifact/issues/5))
-- GitLab ([coming soon](https://github.com/ryansonshine/semantic-release-codeartifact/issues/6))
-- CircleCI ([coming soon](https://github.com/ryansonshine/semantic-release-codeartifact/issues/7))
+- [Github Actions](https://github.com/ryansonshine/semantic-release-codeartifact-example/blob/main/.github/workflows/release.yml)
+- GitLab (coming soon - PRs welcome)
+- CircleCI (coming soon - PRs welcome)
 
 ## Additional Usage
 
