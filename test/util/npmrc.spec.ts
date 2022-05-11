@@ -69,5 +69,11 @@ describe('npmrc', () => {
 
       expect(formattedNpmrc).toEqual(npmrc);
     });
+
+    it('should not throw when an undefined value is passed in', () => {
+      const formattedNpmrc = replaceEnvVarsInNpmrc();
+
+      expect(formattedNpmrc).toEqual('');
+    });
   });
 });
