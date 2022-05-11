@@ -9,7 +9,7 @@ import { appendFile, pathExists, readFile, writeFile } from 'fs-extra';
 import readPkg from 'read-pkg';
 import { getError } from './get-error';
 import { isUrlMatch } from './util/url';
-import { getRegistryFromNpmrc } from './util/npmrc';
+import { getRegistryFromNpmrc, replaceEnvVarsInNpmrc } from './util/npmrc';
 import { verifyPlugins } from './verify-plugins';
 
 const REQUIRED_PLUGINS = ['@semantic-release/npm'];
@@ -51,7 +51,8 @@ export const verifyNpm = async (
   if (await pathExists(npmrcPath)) {
     logger.log('Validating `.npmrc` matches CodeArtifact endpoint');
     const npmrc = await readFile(npmrcPath, 'utf8');
-    const [registry, ...otherRegistries] = getRegistryFromNpmrc(npmrc);
+    const formattedNpmrc = replaceEnvVarsInNpmrc(npmrc);
+    const [registry, ...otherRegistries] = getRegistryFromNpmrc(formattedNpmrc);
 
     // npmrc exists but no registries are listed
     if (registry) {

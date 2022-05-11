@@ -23,8 +23,15 @@ describe('verify-npm', () => {
     const caConfig = makeCodeArtifactConfig();
     const mockContext = getMockContext();
 
+    const PREV_ENV = process.env;
+
     beforeEach(() => {
+      process.env = { ...PREV_ENV };
       jest.resetAllMocks();
+    });
+
+    afterEach(() => {
+      process.env = PREV_ENV;
     });
 
     it('should add an error when missing a plugin from the list of required plugins', async () => {
@@ -161,6 +168,24 @@ describe('verify-npm', () => {
         expect(error?.code).toEqual(mismatchNpmrcCode);
         expect(error?.name).toEqual('SemanticReleaseError');
         expect(otherErrors).toHaveLength(0);
+      });
+    });
+
+    it('should NOT add an error if npmrc has environment variables that match with substitution', async () => {
+      process.env.AWS_ACCOUNT_ID = '123456789012';
+      process.env.AWS_REGION = 'us-east-1';
+      await tempy.directory.task(async cwd => {
+        await copy(`${fixtures}/envvars.npmrc`, `${cwd}/.npmrc`);
+        await copyDefaultPackage(cwd);
+
+        const errors = await verifyNpm(
+          pluginConfig,
+          { ...mockContext, cwd },
+          caConfig,
+          []
+        );
+
+        expect(errors).toHaveLength(0);
       });
     });
 
