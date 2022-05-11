@@ -231,6 +231,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://ryansonshine.com"><img src="https://avatars.githubusercontent.com/u/9534477?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ryan Sonshine</b></sub></a><br /><a href="https://github.com/ryansonshine/semantic-release-codeartifact/commits?author=ryansonshine" title="Code">💻</a></td>
+    <td align="center"><a href="http://jaredmcateer.com"><img src="https://avatars.githubusercontent.com/u/781540?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jared McAteer</b></sub></a><br /><a href="https://github.com/ryansonshine/semantic-release-codeartifact/issues?q=author%3Ajaredmcateer" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
