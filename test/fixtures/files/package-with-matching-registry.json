@@ -14,7 +14,7 @@
     }
   ],
   "publishConfig": {
-    "registry": "https://my-domain-000000000.d.codeartifact.us-east-1.amazonaws.com/npm/my-repo/"
+    "registry": "https://my-domain-123456789012.d.codeartifact.us-east-1.amazonaws.com/npm/my-repo/"
   },
   "scripts": {},
   "dependencies": {},

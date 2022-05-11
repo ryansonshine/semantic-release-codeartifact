@@ -23,6 +23,6 @@ export const makeCodeArtifactConfig = (
 ): CodeArtifactConfig => ({
   authorizationToken: '16b1690f-4a51-4e2f-a9d6-ff5b0ec1189f-test-auth-token',
   repositoryEndpoint:
-    'https://my-domain-000000000.d.codeartifact.us-east-1.amazonaws.com/npm/my-repo/',
+    'https://my-domain-123456789012.d.codeartifact.us-east-1.amazonaws.com/npm/my-repo/',
   ...overrides,
 });
