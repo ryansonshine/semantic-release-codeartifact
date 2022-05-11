@@ -1,7 +1,4 @@
 <!-- omit in toc -->
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 # Semantic Release CodeArtifact
 
 [![npm package][npm-img]][npm-url]
@@ -40,6 +37,7 @@ CodeArtifact using this plugin with semantic-release.
   - [Python - pip](#python---pip)
   - [Java - Maven](#java---maven)
   - [Java - Gradle](#java---gradle)
+- [Contributors ✨](#contributors-)
 
 ## Install
 
@@ -223,23 +221,6 @@ Support for Maven coming soon
 
 Support for Gradle coming soon
 
-[build-img]:https://github.com/ryansonshine/semantic-release-codeartifact/actions/workflows/release.yml/badge.svg
-[build-url]:https://github.com/ryansonshine/semantic-release-codeartifact/actions/workflows/release.yml
-[downloads-img]:https://img.shields.io/npm/dt/semantic-release-codeartifact
-[downloads-url]:https://www.npmtrends.com/semantic-release-codeartifact
-[npm-img]:https://img.shields.io/npm/v/semantic-release-codeartifact
-[npm-url]:https://www.npmjs.com/package/semantic-release-codeartifact
-[issues-img]:https://img.shields.io/github/issues/ryansonshine/semantic-release-codeartifact
-[issues-url]:https://github.com/ryansonshine/semantic-release-codeartifact/issues
-[codecov-img]:https://codecov.io/gh/ryansonshine/semantic-release-codeartifact/branch/main/graph/badge.svg
-[codecov-url]:https://codecov.io/gh/ryansonshine/semantic-release-codeartifact
-[semantic-release-img]:https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
-[semantic-release-url]:https://github.com/semantic-release/semantic-release
-[commitizen-img]:https://img.shields.io/badge/commitizen-friendly-brightgreen.svg
-[commitizen-url]:http://commitizen.github.io/cz-cli/
-[sr-node-version]:https://github.com/semantic-release/semantic-release/blob/master/docs/support/node-version.md
-[sr-git-version]:https://github.com/semantic-release/semantic-release/blob/master/docs/support/git-version.md
-
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -259,3 +240,20 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+[build-img]:https://github.com/ryansonshine/semantic-release-codeartifact/actions/workflows/release.yml/badge.svg
+[build-url]:https://github.com/ryansonshine/semantic-release-codeartifact/actions/workflows/release.yml
+[downloads-img]:https://img.shields.io/npm/dt/semantic-release-codeartifact
+[downloads-url]:https://www.npmtrends.com/semantic-release-codeartifact
+[npm-img]:https://img.shields.io/npm/v/semantic-release-codeartifact
+[npm-url]:https://www.npmjs.com/package/semantic-release-codeartifact
+[issues-img]:https://img.shields.io/github/issues/ryansonshine/semantic-release-codeartifact
+[issues-url]:https://github.com/ryansonshine/semantic-release-codeartifact/issues
+[codecov-img]:https://codecov.io/gh/ryansonshine/semantic-release-codeartifact/branch/main/graph/badge.svg
+[codecov-url]:https://codecov.io/gh/ryansonshine/semantic-release-codeartifact
+[semantic-release-img]:https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
+[semantic-release-url]:https://github.com/semantic-release/semantic-release
+[commitizen-img]:https://img.shields.io/badge/commitizen-friendly-brightgreen.svg
+[commitizen-url]:http://commitizen.github.io/cz-cli/
+[sr-node-version]:https://github.com/semantic-release/semantic-release/blob/master/docs/support/node-version.md
+[sr-git-version]:https://github.com/semantic-release/semantic-release/blob/master/docs/support/git-version.md
