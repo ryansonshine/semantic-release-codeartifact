@@ -13,6 +13,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "jaredmcateer",
+      "name": "Jared McAteer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/781540?v=4",
+      "profile": "http://jaredmcateer.com",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
