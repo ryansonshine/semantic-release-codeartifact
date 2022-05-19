@@ -56,6 +56,8 @@
     "save": "^2.4.0"
   },
   "devDependencies": {
+    "@ryansonshine/commitizen": "^4.2.8",
+    "@ryansonshine/cz-conventional-changelog": "^3.3.4",
     "@types/fs-extra": "^9.0.11",
     "@types/jest": "^26.0.24",
     "@types/node": "^12.20.11",
@@ -64,8 +66,6 @@
     "@typescript-eslint/parser": "^4.22.0",
     "aws-sdk-client-mock": "^0.4.0",
     "codecov": "^3.8.1",
-    "commitizen": "^4.2.4",
-    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.25.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-node": "^11.1.0",
@@ -83,7 +83,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "./node_modules/@ryansonshine/cz-conventional-changelog"
     }
   },
   "lint-staged": {
