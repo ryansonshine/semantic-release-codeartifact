@@ -48,7 +48,7 @@ describe('get-ca-config', () => {
       try {
         await getCodeArtifactConfig(config, context);
       } catch (errors) {
-        const [error, ...otherErrors] = errors;
+        const [error, ...otherErrors] = errors as any[];
         expect(error?.code).toEqual<keyof ErrorDefinitions>('ENOAUTHTOKEN');
         expect(error?.name).toEqual('SemanticReleaseError');
         expect(otherErrors).toHaveLength(0);
@@ -62,7 +62,7 @@ describe('get-ca-config', () => {
       try {
         await getCodeArtifactConfig(config, context);
       } catch (errors) {
-        const [error, ...otherErrors] = errors;
+        const [error, ...otherErrors] = errors as any[];
         expect(error?.code).toEqual<keyof ErrorDefinitions>('ENOREPOENDPOINT');
         expect(error?.name).toEqual('SemanticReleaseError');
         expect(otherErrors).toHaveLength(0);
@@ -80,7 +80,7 @@ describe('get-ca-config', () => {
       try {
         await getCodeArtifactConfig(config, context);
       } catch (errors) {
-        const [error, ...otherErrors] = errors;
+        const [error, ...otherErrors] = errors as any[];
         expect(error?.code).toEqual<keyof ErrorDefinitions>('EAWSSDK');
         expect(error?.name).toEqual('SemanticReleaseError');
         expect(error?.details).toMatch('TestAWSError');
@@ -97,7 +97,7 @@ describe('get-ca-config', () => {
       try {
         await getCodeArtifactConfig(config, context);
       } catch (errors) {
-        const [error, ...otherErrors] = errors;
+        const [error, ...otherErrors] = errors as any[];
         expect(error?.code).toEqual<keyof ErrorDefinitions>('EAWSSDK');
         expect(error?.name).toEqual('SemanticReleaseError');
         expect(error?.details).toMatch('UnknownException');
