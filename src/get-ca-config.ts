@@ -26,6 +26,7 @@ export const getCodeArtifactConfig = async (
         credentials: {
           accessKeyId: env.AWS_ACCESS_KEY_ID as string,
           secretAccessKey: env.AWS_SECRET_ACCESS_KEY as string,
+          sessionToken: env.AWS_SESSION_TOKEN,
         },
         region: env.AWS_REGION,
       }),
