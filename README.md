@@ -69,7 +69,7 @@ See [Additional Usage](#additional-usage) for details on using other tools with 
 
 ## Demo
 
-Check out [this example repo](https://github.com/ryansonshine/semantic-release-codeartifact-example) to see it in action.
+Check out [this example repo](https://github.com/aws-samples/aws-codeartifact-semantic-release-example) to see it in action.
 
 ## Requirements
 
@@ -168,7 +168,7 @@ specified by plugin config will take precedence over these environment variables
 
 ### CI Configurations
 
-- [Github Actions](https://github.com/ryansonshine/semantic-release-codeartifact-example/blob/main/.github/workflows/release.yml)
+- [GitHub Actions](https://github.com/aws-samples/aws-codeartifact-semantic-release-example/blob/main/.github/workflows/release.yml)
 - GitLab (coming soon - PRs welcome)
 - CircleCI (coming soon - PRs welcome)
 
