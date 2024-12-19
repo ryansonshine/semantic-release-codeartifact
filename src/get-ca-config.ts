@@ -65,6 +65,7 @@ export const getCodeArtifactConfig = async (
     if (isAWSError(e)) {
       errors.push(getError('EAWSSDK', { message: e.message, name: e.name }));
     } else {
+      console.error(e);
       errors.push(
         getError('EAWSSDK', {
           name: 'UnknownException',
