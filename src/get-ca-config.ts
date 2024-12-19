@@ -63,6 +63,7 @@ export const getCodeArtifactConfig = async (
     if (e instanceof AggregateError) throw e;
 
     if (isAWSError(e)) {
+      console.error(e);
       errors.push(getError('EAWSSDK', { message: e.message, name: e.name }));
     } else {
       console.error(e);
