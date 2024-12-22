@@ -22,6 +22,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "doronpr",
+      "name": "Doron Pearl",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3373954?v=4",
+      "profile": "https://github.com/doronpr",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -29,5 +38,7 @@
   "projectOwner": "ryansonshine",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": true
+  "skipCi": true,
+  "commitType": "docs",
+  "commitConvention": "angular"
 }

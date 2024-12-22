@@ -229,10 +229,13 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 <table>
-  <tr>
-    <td align="center"><a href="https://ryansonshine.com"><img src="https://avatars.githubusercontent.com/u/9534477?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ryan Sonshine</b></sub></a><br /><a href="https://github.com/ryansonshine/semantic-release-codeartifact/commits?author=ryansonshine" title="Code">💻</a></td>
-    <td align="center"><a href="http://jaredmcateer.com"><img src="https://avatars.githubusercontent.com/u/781540?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jared McAteer</b></sub></a><br /><a href="https://github.com/ryansonshine/semantic-release-codeartifact/issues?q=author%3Ajaredmcateer" title="Bug reports">🐛</a></td>
-  </tr>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://ryansonshine.com"><img src="https://avatars.githubusercontent.com/u/9534477?v=4?s=100" width="100px;" alt="Ryan Sonshine"/><br /><sub><b>Ryan Sonshine</b></sub></a><br /><a href="https://github.com/ryansonshine/semantic-release-codeartifact/commits?author=ryansonshine" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://jaredmcateer.com"><img src="https://avatars.githubusercontent.com/u/781540?v=4?s=100" width="100px;" alt="Jared McAteer"/><br /><sub><b>Jared McAteer</b></sub></a><br /><a href="https://github.com/ryansonshine/semantic-release-codeartifact/issues?q=author%3Ajaredmcateer" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/doronpr"><img src="https://avatars.githubusercontent.com/u/3373954?v=4?s=100" width="100px;" alt="Doron Pearl"/><br /><sub><b>Doron Pearl</b></sub></a><br /><a href="https://github.com/ryansonshine/semantic-release-codeartifact/issues?q=author%3Adoronpr" title="Bug reports">🐛</a></td>
+    </tr>
+  </tbody>
 </table>
 
 <!-- markdownlint-restore -->
