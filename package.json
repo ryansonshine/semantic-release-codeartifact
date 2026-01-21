@@ -73,7 +73,7 @@
     "jest": "^27.2.0",
     "lint-staged": "^13.2.1",
     "prettier": "^2.2.1",
-    "semantic-release": "^21.0.1",
+    "semantic-release": "^25.0.2",
     "signale": "^1.4.0",
     "tempy": "^1.0.1",
     "ts-jest": "^27.0.5",
